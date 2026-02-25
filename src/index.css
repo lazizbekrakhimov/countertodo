@@ -7,6 +7,11 @@
     box-sizing: border-box;
 }
 
+::selection {
+    background-color: rgb(103, 232, 249);
+    color: #161616;
+}
+
 body {
     margin: 0;
     padding: 0;
