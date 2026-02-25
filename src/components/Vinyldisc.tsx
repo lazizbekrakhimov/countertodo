@@ -88,8 +88,7 @@ const VinylDisc = ({ playing, onToggle }: VinylDiscProps) => (
         }} />
 
         {/* Tonearm SVG */}
-        <svg
-            viewBox={`-100 -20 ${DISC} ${DISC}`}
+        <svg viewBox={`-100 -20 ${DISC} ${DISC}`}
             style={{
                 position: "absolute", inset: 0, width: "100%", height: "100%",
                 overflow: "visible", pointerEvents: "none", zIndex: 5,
@@ -108,31 +107,45 @@ const VinylDisc = ({ playing, onToggle }: VinylDiscProps) => (
                     <stop offset="100%" stopColor="#0e7490" />
                 </radialGradient>
             </defs>
-            <line x1="510" y1="-10" x2="310" y2="338"
-                stroke="url(#armGrad)" strokeWidth="15" strokeLinecap="round"
-                style={{ filter: "drop-shadow(0 0 4px rgba(34,211,238,0.6))" }} />
-            <line x1="309.3" y1="338" x2="305" y2="366"
-                stroke="#8b5cf6" strokeWidth="11" strokeLinecap="round"
-                style={{ filter: "drop-shadow(0 0 4px rgba(139,92,246,0.7))" }} />
-            <rect x="288" y="366" width="35" height="35" rx="3"
-                fill="#22d3ee"
-                style={{ filter: "drop-shadow(0 0 7px rgba(34,211,238,1))" }} />
-            <polygon
-                points="294,394 300,394 297,400"
-                fill="rgba(255,255,255)"
-                style={{ filter: "drop-shadow(0 0 4px rgba(34,211,238,0.9))", transform: "translate(9px, 7px)" }}
-            />
-            <circle cx="510" cy="-10" r="35"
-                fill="url(#pivotGrad)"
-                style={{ filter: "drop-shadow(0 0 12px rgba(34,211,238,0.8))" }} />
+            <svg width="600" height="600">
+                <defs>
+                    <linearGradient id="armGrad" x1="510" y1="-10" x2="310" y2="338" gradientUnits="userSpaceOnUse">
+                        <stop offset="0%" stopColor="#22d3ee" />
+                        <stop offset="100%" stopColor="#8b5cf6" />
+                    </linearGradient>
+                    <radialGradient id="pivotPurple" cx="40%" cy="30%">
+                        <stop offset="0%" stopColor="#c4b5fd" />
+                        <stop offset="60%" stopColor="#8b5cf6" />
+                        <stop offset="100%" stopColor="#8b5cf6" />
+                    </radialGradient>
+                </defs>
+                <line x1="510" y1="-10" x2="310" y2="338" stroke="url(#armGrad)" strokeWidth="16" strokeLinecap="round" style={{ filter: "drop-shadow(0 0 6px rgba(34,211,238,0.8))" }} />
+                <line x1="309.3" y1="338" x2="305" y2="366" stroke="#8b5cf6" strokeWidth="12" strokeLinecap="round" style={{ filter: "drop-shadow(0 0 4px rgba(139,92,246,0.8))" }} />
+                <circle cx="310" cy="338" r="8" fill="url(#pivotPurple)" style={{ filter: "drop-shadow(0 0 10px rgba(139,92,246,0.9))" }} />
+            </svg>
+            <svg width="600" height="600">
+                <defs>
+                    <linearGradient id="rectGrad" x1="288" y1="366" x2="323" y2="401" gradientUnits="userSpaceOnUse">
+                        <stop offset="0%" stopColor="#22d3ee" />
+                        <stop offset="100%" stopColor="#8b5cf6" />
+                    </linearGradient>
+
+                    <radialGradient id="rectHighlight" cx="30%" cy="30%">
+                        <stop offset="0%" stopColor="#67e8f9" />
+                        <stop offset="100%" stopColor="#0e7490" />
+                    </radialGradient>
+                </defs>
+                <rect x="288" y="366" width="35" height="35" rx="3" fill="url(#rectGrad)" style={{ filter: "drop-shadow(0 0 8px rgba(34,211,238,0.8))" }} />
+                <rect x="288" y="366" width="35" height="35" rx="3" fill="url(#rectHighlight)" opacity="0.4" />
+            </svg>
+            <polygon points="294,394 300,394 297,400" fill="rgba(255,255,255)" style={{ filter: "drop-shadow(0 0 4px rgba(34,211,238,0.9))", transform: "translate(9px, 7px)" }} />
+            <circle cx="510" cy="-10" r="35" fill="url(#pivotGrad)" style={{ filter: "drop-shadow(0 0 12px rgba(34,211,238,0.8))" }} />
             <circle cx="510" cy="-10" r="15" fill="#083344" />
-            <circle cx="510" cy="-10" r="5" fill="#22d3ee"
-                style={{ filter: "drop-shadow(0 0 4px #22d3ee)" }} />
+            <circle cx="510" cy="-10" r="5" fill="#22d3ee" style={{ filter: "drop-shadow(0 0 4px #22d3ee)" }} />
         </svg>
 
         {/* Power switch */}
-        <div
-            onClick={onToggle}
+        <div onClick={onToggle}
             style={{
                 position: "absolute", bottom: -30, right: -145,
                 display: "flex", flexDirection: "column", alignItems: "center", gap: 7,
@@ -165,11 +178,7 @@ const VinylDisc = ({ playing, onToggle }: VinylDiscProps) => (
                     <div style={{ position: "absolute", top: 5, left: 5, width: 7, height: 14, borderRadius: 3, background: "rgba(255,255,255,0.22)" }} />
                 </div>
             </div>
-            <span style={{
-                fontFamily: "'Orbitron',sans-serif", fontSize: "0.5rem", letterSpacing: "0.2em",
-                color: "rgba(239,68,68,0.8)",
-                transition: "color 0.4s ease",
-            }}>POWER</span>
+            <span style={{ fontFamily: "'Orbitron',sans-serif", fontSize: "0.5rem", letterSpacing: "0.2em", color: "rgba(239,68,68,0.8)", transition: "color 0.4s ease" }}>POWER</span>
         </div>
 
     </div>
