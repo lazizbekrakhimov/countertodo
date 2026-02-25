@@ -19,7 +19,7 @@ const Counter = () => {
                     onClick={() => counter > 0 && dispatch(decrement())}
                     className={`flex h-14 w-14 items-center justify-center rounded-xl border text-3xl transition-all active:scale-95
                         ${counter === 0
-                            ? "border-[rgba(139,92,246,0.15)] bg-[rgba(139,92,246,0.15)] text-[rgba(139,92,246,0.15)] cursor-not-allowed"
+                            ? "border-[rgba(139,92,246,0.15)] bg-[rgba(139,92,246,0.15)] text-[rgba(139,92,246,0.15)] cursor-pointer"
                             : "border-purple-500/40 bg-purple-500/10 text-purple-300 hover:bg-purple-500/25 hover:border-purple-400 hover:shadow-[0_0_16px_rgba(34,211,238,0.4)] cursor-pointer"
                         }`}
                 >
@@ -45,7 +45,7 @@ const Counter = () => {
                 </button>
             </div>
 
-            <button onClick={() => dispatch(resetTodo())} className="mt-4 w-full rounded-xl border border-purple-500/30 bg-purple-500/10 py-3 text-xs tracking-widest text-purple-300 transition-all  hover:bg-purple-500/25 hover:border-purple-400 hover:shadow-[0_0_16px_rgba(34,211,238,0.4)] cursor-pointer active:scale-95">
+            <button onClick={() => dispatch(resetTodo())} className="mt-4 w-full rounded-xl border border-purple-500/30 bg-purple-500/10 py-3 text-xs tracking-widest text-purple-300 transition-all  hover:bg-purple-500/25 hover:border-purple-400 hover:shadow-[0_0_8px_rgba(34,211,238,0.4)] cursor-pointer active:scale-95">
                 RESET
             </button>
         </div>

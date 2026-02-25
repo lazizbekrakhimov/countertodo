@@ -27,7 +27,6 @@ export default function App() {
         style={{ width: 550, height: 550, bottom: -120, right: -120 }} />
 
       <div className="relative z-10 flex min-h-screen items-center justify-center gap-25 px-30">
-
         <div
           className="flex w-95 shrink-0 flex-col gap-5"
           style={{

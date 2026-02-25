@@ -34,16 +34,30 @@ const VinylDisc = ({ playing, onToggle }: VinylDiscProps) => (
                 background: `repeating-radial-gradient(circle at 50% 50%, transparent 0px, transparent 9px, rgba(255,255,255,0.048) 10px, rgba(0,0,0,0.22) 11px, transparent 12px)`,
             }} />
             <div style={{
-                position: "absolute", inset: 0, borderRadius: "50%",
-                background: `conic-gradient(from 0deg at 30% 28%, rgba(255,255,255,0.15) 0deg, transparent 60deg, transparent 175deg, rgba(255,255,255,0.06) 185deg, transparent 230deg, transparent 360deg)`,
+                position: "absolute",
+                inset: 0,
+                borderRadius: "50%",
+                background: `
+                conic-gradient(
+                    from 0deg at 30% 28%,
+                    rgba(255,255,255,0.08) 0deg,
+                    transparent 45deg,
+                    transparent 170deg,
+                    rgba(255,255,255,0.03) 180deg,
+                    transparent 220deg,
+                    transparent 360deg
+                ),
+                radial-gradient(circle at 50% 50%, rgba(255,255,255,0.02), transparent 70%)
+            `,
                 mixBlendMode: "screen",
+                pointerEvents: "none",
             }} />
         </div>
 
         {/* Label — sibling, never spins */}
         <div style={{
             position: "absolute",
-            width: "36%", height: "36%",
+            width: "37%", height: "37%",
             top: "50%", left: "50%",
             transform: "translate(-50%, -50%)",
             borderRadius: "50%",
@@ -57,15 +71,15 @@ const VinylDisc = ({ playing, onToggle }: VinylDiscProps) => (
             transition: "filter 0.5s ease",
             filter: playing ? "none" : "brightness(0.5)",
         }}>
-            <span style={{ fontFamily: "'Orbitron',sans-serif", fontSize: "0.9rem", color: "rgba(139,92,246,0.6)", letterSpacing: "0.18em" }}>2026</span>
-            <span style={{ fontFamily: "'Orbitron',sans-serif", fontSize: "1.5rem", fontWeight: 900, color: "#22d3ee", letterSpacing: "0.04em", textShadow: "0 0 8px rgba(34,211,238,1)" }}>LAZIZBEK</span>
-            <span style={{ fontFamily: "'Orbitron',sans-serif", fontSize: "1.2rem", fontWeight: 700, color: "rgba(167,139,250,0.95)", letterSpacing: "0.04em" }}>RAHIMOV</span>
-            <span style={{ fontFamily: "'Share Tech Mono',monospace", fontSize: "1rem", color: "rgba(255,255,255,0.3)", letterSpacing: "0.15em" }}>PROJECT</span>
+            <span style={{ fontFamily: "'Orbitron',sans-serif", fontSize: "0.8rem", paddingTop: "3px", color: "rgba(139,92,246,0.6)", textShadow: "0 0 8px rgba(139,92,246,0.6)", letterSpacing: "0.18em" }}>2026</span>
+            <span style={{ fontFamily: "'Orbitron',sans-serif", fontSize: "1.4rem", fontWeight: 900, color: "#22d3ee", letterSpacing: "0.04em", textShadow: "0 0 16px rgba(34,211,238,1)" }}>LAZIZBEK</span>
+            <span style={{ fontFamily: "'Orbitron',sans-serif", fontSize: "1.1rem", fontWeight: 700, color: "rgba(167,139,250,0.95)", textShadow: "0 0 10px rgba(167,139,250,0.95)", letterSpacing: "0.04em" }}>RAHIMOV</span>
+            <span style={{ fontFamily: "'Share Tech Mono',monospace", fontSize: "0.7rem", fontWeight: 700, color: "rgba(255,255,255,0.3)", textShadow: "0 0 8px rgba(255,255,255,0.3)", letterSpacing: "0.15em", padding: "2px" }}>PROJECT</span>
         </div>
 
         {/* Spindle */}
         <div style={{
-            position: "absolute", width: 11, height: 11,
+            position: "absolute", width: 12, height: 12,
             top: "50%", left: "50%", transform: "translate(-50%, -50%)",
             borderRadius: "50%",
             background: "radial-gradient(circle at 35% 35%, #555, #060406)",
@@ -97,21 +111,21 @@ const VinylDisc = ({ playing, onToggle }: VinylDiscProps) => (
             <line x1="510" y1="-10" x2="310" y2="338"
                 stroke="url(#armGrad)" strokeWidth="15" strokeLinecap="round"
                 style={{ filter: "drop-shadow(0 0 4px rgba(34,211,238,0.6))" }} />
-            <line x1="310" y1="338" x2="296" y2="366"
+            <line x1="309.3" y1="338" x2="305" y2="366"
                 stroke="#8b5cf6" strokeWidth="11" strokeLinecap="round"
                 style={{ filter: "drop-shadow(0 0 4px rgba(139,92,246,0.7))" }} />
-            <rect x="287.5" y="366" width="18" height="28" rx="3"
+            <rect x="288" y="366" width="35" height="35" rx="3"
                 fill="#22d3ee"
                 style={{ filter: "drop-shadow(0 0 7px rgba(34,211,238,1))" }} />
             <polygon
                 points="294,394 300,394 297,400"
                 fill="rgba(255,255,255)"
-                style={{ filter: "drop-shadow(0 0 4px rgba(34,211,238,0.9))" }}
+                style={{ filter: "drop-shadow(0 0 4px rgba(34,211,238,0.9))", transform: "translate(9px, 7px)" }}
             />
-            <circle cx="510" cy="-10" r="26"
+            <circle cx="510" cy="-10" r="35"
                 fill="url(#pivotGrad)"
                 style={{ filter: "drop-shadow(0 0 12px rgba(34,211,238,0.8))" }} />
-            <circle cx="510" cy="-10" r="10" fill="#083344" />
+            <circle cx="510" cy="-10" r="15" fill="#083344" />
             <circle cx="510" cy="-10" r="5" fill="#22d3ee"
                 style={{ filter: "drop-shadow(0 0 4px #22d3ee)" }} />
         </svg>
@@ -141,7 +155,7 @@ const VinylDisc = ({ playing, onToggle }: VinylDiscProps) => (
                     background: playing
                         ? "linear-gradient(180deg, #f87171 0%, #b91c1c 50%, #f87171 100%)"
                         : "linear-gradient(180deg, #4b5563 0%, #1f2937 50%, #4b5563 100%)",
-                    transform: playing ? "translateY(12px)" : "translateY(-12px)",
+                    transform: playing ? "translateY(13px)" : "translateY(-13px)",
                     boxShadow: playing
                         ? "0 0 16px rgba(239,68,68,0.65), inset 0 1px 2px rgba(255,255,255,0.2)"
                         : "0 0 4px rgba(0,0,0,0.4), inset 0 1px 2px rgba(255,255,255,0.05)",
