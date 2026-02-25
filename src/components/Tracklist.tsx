@@ -26,10 +26,10 @@ const Tracklist = () => {
                     className="flex-1 rounded-xl border border-white/10 bg-white/5 px-4 py-2.5 text-sm text-white placeholder-white/25 outline-none transition-all focus:border-cyan-400/50 focus:shadow-[0_0_12px_rgba(34,211,238,0.15)]" />
                 <button
                     onClick={handleAdd}
-                    className="rounded-xl border border-cyan-500/40 bg-cyan-500/15 px-5 py-2.5 text-xs font-semibold tracking-[0.15em] text-cyan-300 uppercase transition-all  hover:bg-cyan-400/25 hover:shadow-[0_0_16px_rgba(34,211,238,0.3)] active:scale-95" >ADD</button>
+                    className="rounded-xl border border-cyan-500/40 bg-cyan-500/15 px-5 py-2.5 text-xs font-semibold tracking-[0.15em] text-cyan-300 uppercase transition-all cursor-pointer hover:bg-cyan-500/25 hover:border-cyan-400 hover:shadow-[0_0_16px_rgba(34,211,238,0.4)] active:scale-95" >ADD</button>
             </div>
 
-            <ul className="flex max-h-57.5 flex-col gap-2 overflow-y-auto pr-1
+            <ul className="flex max-h-47.5 min-h-15 flex-col gap-2 overflow-y-auto pr-1
                      [&::-webkit-scrollbar]:w-0.5
                      [&::-webkit-scrollbar-thumb]:rounded-full
                      [&::-webkit-scrollbar-thumb]:bg-cyan-400/30">
@@ -46,7 +46,7 @@ const Tracklist = () => {
                     >
                         <button
                             onClick={() => dispatch(toggleTodo(todo.id))}
-                            className="flex h-6 w-6 shrink-0 items-center justify-center rounded-md border transition-all"
+                            className="flex h-6 w-6 shrink-0 items-center justify-center cursor-pointer rounded-md border transition-all"
                             style={{
                                 borderColor: todo.completed ? "rgba(34,211,238,0.5)" : "rgba(255,255,255,0.15)",
                                 background: todo.completed ? "rgba(34,211,238,0.15)" : "transparent",
@@ -68,7 +68,7 @@ const Tracklist = () => {
                             {todo.text}
                         </span>
 
-                        <button onClick={() => dispatch(removeTodo(todo.id))} className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg border border-red-500/20  bg-red-500/10 text-red-400/60 transition-all  hover:bg-red-500/25 hover:border-red-400/50 hover:text-red-400  hover:shadow-[0_0_10px_rgba(239,68,68,0.3)]"  >
+                        <button onClick={() => dispatch(removeTodo(todo.id))} className="flex h-8 w-8 pl-0.5 shrink-0 items-center justify-center rounded-lg border border-red-500/20  bg-red-500/10 text-red-400/60 transition-all duration-200 cursor-pointer hover:bg-red-500/25 hover:border-red-400 hover:text-red-400  hover:shadow-[0_0_10px_rgba(239,68,68,0.3)]"  >
                             <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
                                 <path d="M2 2L10 10M10 2L2 10" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
                             </svg>

@@ -1,4 +1,4 @@
-const DISC = 480;
+const DISC = 500;
 
 interface VinylDiscProps {
     playing: boolean;
@@ -31,21 +31,11 @@ const VinylDisc = ({ playing, onToggle }: VinylDiscProps) => (
         }}>
             <div style={{
                 position: "absolute", inset: 0, borderRadius: "50%",
-                background: `repeating-radial-gradient(
-          circle at 50% 50%,
-          transparent 0px, transparent 9px,
-          rgba(255,255,255,0.048) 10px, rgba(0,0,0,0.22) 11px,
-          transparent 12px
-        )`,
+                background: `repeating-radial-gradient(circle at 50% 50%, transparent 0px, transparent 9px, rgba(255,255,255,0.048) 10px, rgba(0,0,0,0.22) 11px, transparent 12px)`,
             }} />
             <div style={{
                 position: "absolute", inset: 0, borderRadius: "50%",
-                background: `conic-gradient(
-          from 0deg at 30% 28%,
-          rgba(255,255,255,0.15) 0deg, transparent 60deg,
-          transparent 175deg, rgba(255,255,255,0.06) 185deg,
-          transparent 230deg, transparent 360deg
-        )`,
+                background: `conic-gradient(from 0deg at 30% 28%, rgba(255,255,255,0.15) 0deg, transparent 60deg, transparent 175deg, rgba(255,255,255,0.06) 185deg, transparent 230deg, transparent 360deg)`,
                 mixBlendMode: "screen",
             }} />
         </div>
@@ -67,10 +57,10 @@ const VinylDisc = ({ playing, onToggle }: VinylDiscProps) => (
             transition: "filter 0.5s ease",
             filter: playing ? "none" : "brightness(0.5)",
         }}>
-            <span style={{ fontFamily: "'Orbitron',sans-serif", fontSize: "0.7rem", color: "rgba(139,92,246,0.6)", letterSpacing: "0.18em" }}>2026</span>
-            <span style={{ fontFamily: "'Orbitron',sans-serif", fontSize: "1.2rem", fontWeight: 900, color: "#22d3ee", letterSpacing: "0.04em", textShadow: "0 0 8px rgba(34,211,238,1)" }}>LAZIZBEK</span>
-            <span style={{ fontFamily: "'Orbitron',sans-serif", fontSize: "1rem", fontWeight: 700, color: "rgba(167,139,250,0.95)", letterSpacing: "0.04em" }}>RAHIMOV</span>
-            <span style={{ fontFamily: "'Share Tech Mono',monospace", fontSize: "0.8rem", color: "rgba(255,255,255,0.3)", letterSpacing: "0.15em" }}>PROJECT</span>
+            <span style={{ fontFamily: "'Orbitron',sans-serif", fontSize: "0.9rem", color: "rgba(139,92,246,0.6)", letterSpacing: "0.18em" }}>2026</span>
+            <span style={{ fontFamily: "'Orbitron',sans-serif", fontSize: "1.5rem", fontWeight: 900, color: "#22d3ee", letterSpacing: "0.04em", textShadow: "0 0 8px rgba(34,211,238,1)" }}>LAZIZBEK</span>
+            <span style={{ fontFamily: "'Orbitron',sans-serif", fontSize: "1.2rem", fontWeight: 700, color: "rgba(167,139,250,0.95)", letterSpacing: "0.04em" }}>RAHIMOV</span>
+            <span style={{ fontFamily: "'Share Tech Mono',monospace", fontSize: "1rem", color: "rgba(255,255,255,0.3)", letterSpacing: "0.15em" }}>PROJECT</span>
         </div>
 
         {/* Spindle */}
@@ -85,17 +75,17 @@ const VinylDisc = ({ playing, onToggle }: VinylDiscProps) => (
 
         {/* Tonearm SVG */}
         <svg
-            viewBox={`0 0 ${DISC} ${DISC}`}
+            viewBox={`-100 -20 ${DISC} ${DISC}`}
             style={{
                 position: "absolute", inset: 0, width: "100%", height: "100%",
                 overflow: "visible", pointerEvents: "none", zIndex: 5,
                 transition: "transform 0.8s cubic-bezier(0.4,0,0.2,1)",
-                transform: playing ? "rotate(0deg)" : "rotate(-28deg)",
-                transformOrigin: "510px -10px",
+                transform: playing ? "rotate(0deg)" : "rotate(-16deg)",
+                transformOrigin: "600px 0",
             }}
         >
             <defs>
-                <linearGradient id="armGrad" x1="510" y1="-10" x2="310" y2="215" gradientUnits="userSpaceOnUse">
+                <linearGradient id="armGrad" x1="610" y1="-10" x2="610" y2="215" gradientUnits="userSpaceOnUse">
                     <stop offset="0%" stopColor="#22d3ee" />
                     <stop offset="100%" stopColor="#8b5cf6" />
                 </linearGradient>
@@ -105,21 +95,24 @@ const VinylDisc = ({ playing, onToggle }: VinylDiscProps) => (
                 </radialGradient>
             </defs>
             <line x1="510" y1="-10" x2="310" y2="338"
-                stroke="url(#armGrad)" strokeWidth="5" strokeLinecap="round"
+                stroke="url(#armGrad)" strokeWidth="15" strokeLinecap="round"
                 style={{ filter: "drop-shadow(0 0 4px rgba(34,211,238,0.6))" }} />
             <line x1="310" y1="338" x2="296" y2="366"
-                stroke="#8b5cf6" strokeWidth="4" strokeLinecap="round"
+                stroke="#8b5cf6" strokeWidth="11" strokeLinecap="round"
                 style={{ filter: "drop-shadow(0 0 4px rgba(139,92,246,0.7))" }} />
-            <rect x="289" y="364" width="12" height="20" rx="3"
+            <rect x="287.5" y="366" width="18" height="28" rx="3"
                 fill="#22d3ee"
                 style={{ filter: "drop-shadow(0 0 7px rgba(34,211,238,1))" }} />
-            <line x1="295" y1="384" x2="295" y2="392"
-                stroke="rgba(255,255,255,0.7)" strokeWidth="1.5" strokeLinecap="round" />
-            <circle cx="510" cy="-10" r="16"
+            <polygon
+                points="294,394 300,394 297,400"
+                fill="rgba(255,255,255)"
+                style={{ filter: "drop-shadow(0 0 4px rgba(34,211,238,0.9))" }}
+            />
+            <circle cx="510" cy="-10" r="26"
                 fill="url(#pivotGrad)"
                 style={{ filter: "drop-shadow(0 0 12px rgba(34,211,238,0.8))" }} />
-            <circle cx="510" cy="-10" r="6" fill="#083344" />
-            <circle cx="510" cy="-10" r="2" fill="#22d3ee"
+            <circle cx="510" cy="-10" r="10" fill="#083344" />
+            <circle cx="510" cy="-10" r="5" fill="#22d3ee"
                 style={{ filter: "drop-shadow(0 0 4px #22d3ee)" }} />
         </svg>
 
@@ -127,7 +120,7 @@ const VinylDisc = ({ playing, onToggle }: VinylDiscProps) => (
         <div
             onClick={onToggle}
             style={{
-                position: "absolute", bottom: -30, right: -130,
+                position: "absolute", bottom: -30, right: -145,
                 display: "flex", flexDirection: "column", alignItems: "center", gap: 7,
                 zIndex: 2, cursor: "pointer",
             }}
@@ -160,7 +153,7 @@ const VinylDisc = ({ playing, onToggle }: VinylDiscProps) => (
             </div>
             <span style={{
                 fontFamily: "'Orbitron',sans-serif", fontSize: "0.5rem", letterSpacing: "0.2em",
-                color: playing ? "rgba(239,68,68,0.8)" : "rgba(100,116,139,0.6)",
+                color: "rgba(239,68,68,0.8)",
                 transition: "color 0.4s ease",
             }}>POWER</span>
         </div>

@@ -26,11 +26,12 @@ export default function App() {
       <div className="pointer-events-none fixed rounded-full bg-violet-600/10 blur-[110px]"
         style={{ width: 550, height: 550, bottom: -120, right: -120 }} />
 
-      <div className="relative z-10 flex min-h-screen items-center justify-center gap-20 px-30">
+      <div className="relative z-10 flex min-h-screen items-center justify-center gap-25 px-30">
 
         <div
           className="flex w-95 shrink-0 flex-col gap-5"
           style={{
+            marginRight: 60,
             transform: mounted ? "translateY(0)" : "translateY(60px)",
             opacity: mounted ? 1 : 0,
             transition: "transform 0.8s cubic-bezier(0.22,1,0.36,1), opacity 0.8s ease",
@@ -54,7 +55,8 @@ export default function App() {
         <div
           className="flex items-center justify-center"
           style={{
-            padding: 90,
+            paddingRight: 125,
+            paddingTop: 35,
             transform: mounted ? "translateY(0)" : "translateY(-70px)",
             opacity: mounted ? 1 : 0,
             transition: "transform 0.9s cubic-bezier(0.22,1,0.36,1), opacity 0.9s ease",

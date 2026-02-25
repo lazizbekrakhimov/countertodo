@@ -41,8 +41,12 @@ export const AppSlice = createSlice({
     removeTodo: (state, action: PayloadAction<number>) => {
       state.todos = state.todos.filter((t) => t.id !== action.payload);
     },
+    resetTodo: (state) => {
+      state.counter = 0;
+      state.todos = [];
+    }
   },
 });
 
-export const { increment, decrement, addTodo, toggleTodo, removeTodo } = AppSlice.actions;
+export const { increment, decrement, addTodo, toggleTodo, removeTodo, resetTodo } = AppSlice.actions;
 export type RootState = ReturnType<typeof import("./store").store.getState>;
