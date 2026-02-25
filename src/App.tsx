@@ -44,7 +44,7 @@ export default function App() {
 
           <h1 className="text-5xl font-black leading-none"
             style={{ fontFamily: "'Orbitron',sans-serif", textShadow: "0 0 40px rgba(34,211,238,0.35)" }}>
-            VINYL<br /><span className="text-cyan-400">PLAYER</span>
+            VINYL<br /><span className="text-cyan-400">PLAYER CT</span>
           </h1>
 
           <Counter />
